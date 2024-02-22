@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"[typescript]": {
+			"editor.formatOnSave": true,
+			"editor.defaultFormatter": "vscode.typescript-language-features"
+		}
+	}
+}
