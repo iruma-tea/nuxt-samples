@@ -51,3 +51,16 @@ type Emits = {
     ・・・
 };
 const emit = defineEmits<Emits>();
+
+## ステートの用意
+* useState
+useState<ステートのデータ型>(
+    ステート名,
+    (): ステートのデータ型 => {
+        ステートの初期値の生成処理
+        return ステートの初期値;
+    }
+);
+
+## ステートの取得
+const ステートを格納する変数 = useState<ステートのデータ型>(ステート名);
