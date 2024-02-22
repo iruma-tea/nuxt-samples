@@ -45,3 +45,9 @@
 
 ## 子が親のイベントを実行する
 * Emit
+type Emits = {
+    イベント名:[引数:データ型,・・・]
+    ・・・
+    ・・・
+};
+const emit = defineEmits<Emits>();
