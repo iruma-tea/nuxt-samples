@@ -64,3 +64,34 @@ useState<ステートのデータ型>(
 
 ## ステートの取得
 const ステートを格納する変数 = useState<ステートのデータ型>(ステート名);
+
+## リンクの生成
+* NuxtLinkタグ
+  * リンク先パス情報をto属性で指定する。⇒ 例) <NuxtLink to="/member/memberList">
+  * コーディングの柔軟性を考慮して、通常はv-bind:toディレクティブを利用する。　⇒ 例) <NuxtLink v-bind:to="{name: 'member-memberList'}">会員管理はこちら</NuxtLink>
+    * <NuxtLink v-bind:to="{name: 'ハイフン区切りの画面用コンポーネントファイルパス'}">
+
+## ルートパラメータの取得
+* 現在のルートオブジェクトの取得
+  * useRoute()関数を実行する。返却値はRouteLocationNormalized型で主なプロパティは以下のようなものがある
+  
+  |プロパティ|内容|例|
+  |:---|:---|:---|
+  |name|ルーティング名|member-memberDetail-id|
+  |fullPath|pathとhashとqueryのすべてが含まれたパス文字列|/member/memberDetail/47783#section?nametanaka|
+  |path|ルーティングパス文字列|/member/memberDetail/47783|
+  |hash|ハッシュ(#以降の文字列)|#section|
+  |query|クエリ情報(?以降の情報){name: tanaka}||
+  |params|ルートパラメータ|{id: 47783}|
+
+## ルーティングを制御するルータオブジェクト
+* ルータオブジェクトの取得
+  * useRouter()関数を実行する。返却値はRouter型。Router型オブジェクトのメソッドは以下のようなものがある。
+
+  |メソッド|内容|
+  |:---|:---|
+  |push()|指定パスに遷移する|
+  |replace()|現在のパスを置き換える|
+  |back()|履歴上のひとつ前の画面に戻る|
+  |forward()|履歴上のひとつ次の画面に進む|
+  |go()|履歴上の指定の画面に進む|
