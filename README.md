@@ -75,8 +75,9 @@ const ステートを格納する変数 = useState<ステートのデータ型>(
 ## リンクの生成
 * NuxtLinkタグ
   * リンク先パス情報をto属性で指定する。⇒ 例) <NuxtLink to="/member/memberList">
-  * コーディングの柔軟性を考慮して、通常はv-bind:toディレクティブを利用する。　⇒ 例) <NuxtLink v-bind:to="{name: 'member-memberList'}">会員管理はこちら</NuxtLink>
-    * <NuxtLink v-bind:to="{name: 'ハイフン区切りの画面用コンポーネントファイルパス'}">
+  * コーディングの柔軟性を考慮して、通常はv-bind:toディレクティブを利用する。   
+  `⇒ 例) <NuxtLink v-bind:to="{name: 'member-memberList'}">会員管理はこちら</NuxtLink>`   
+  * `<NuxtLink v-bind:to="{name: 'ハイフン区切りの画面用コンポーネントファイルパス'}">`
 
 ## ルートパラメータの取得
 * 現在のルートオブジェクトの取得
