@@ -12,12 +12,9 @@ useState<Map<number, Member>>("memberList", ():Map<number, Member> => {
 </script>
 
 <template>
-  <header>
-    <h1>ルーティングサンプル</h1>
-  </header>
-  <div>
+  <NuxtLayout>
     <NuxtPage />
-  </div>
+  </NuxtLayout>
 </template>
 
 <style>

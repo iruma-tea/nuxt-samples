@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import type { Member } from "@/interfaces";
 
+definePageMeta(
+    {
+        layout: "member"
+    }
+);
+
 // ルートオブジェクトを取得
 const route = useRoute();
 // 会員情報リストをステートから取得
@@ -24,7 +30,6 @@ const localNote = computed(
 );
 </script>
 <template>
-	<h1>会員管理</h1>
 	<nav id="breadcrumbs">
 		<ul>
 			<li><NuxtLink v-bind:to="{name: 'index'}">TOP</NuxtLink></li>
