@@ -14,7 +14,7 @@ const selectedCity = computed(
 );
 
 //天気情報のテンプレート変数を用意。
-const weatherDescription = ref("");
+// const weatherDescription = ref("");
 
 const asyncData = await useAsyncData(
 	'/WeatherInfog/${route.params.id}',
@@ -31,7 +31,7 @@ const asyncData = await useAsyncData(
 			//都市を表すクエリパラメータ。
 			q: selectedCity.value.q,
 			//APIキーのクエリパラメータ。ここに各自の文字列を記述する!!
-			appid: "xxxxxx"
+			appid: "xxxxxx",
 		}
 		//クエリパラメータを生成。
 		const queryParams = new URLSearchParams(params);
@@ -39,12 +39,21 @@ const asyncData = await useAsyncData(
 		const urlFull = `${weatherInfoUrl}?${queryParams}`;
 		const response = $fetch(urlFull);
 		return response;
+	},
+	{
+		// pick: ["wather"],
+		transform: (data: any): string => {
+			const weatherArray = data.weather;
+			const weather = weatherArray[0];
+			return weather.description;
+		}
 	}
 );
-const data = asyncData.data;
-const weatherArray = data.value.weather;
-const weather = weatherArray[0];
-weatherDescription.value = weather.description;
+// const data = asyncData.data;
+// const weatherArray = data.value.weather;
+// const weather = weatherArray[0];
+// weatherDescription.value = weather.description;
+const weatherDescription = asyncData.data;
 
 </script>
 
