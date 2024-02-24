@@ -215,8 +215,8 @@ const queryParams = new URLSearchParams(params);
 |watch|リアクティブな変数の配列|自動的にrefreshを実行するためのリアクティブな変数を設定|
 |immediate|true/false(デフォルトtrue)|falseを設定すると即時実行しない|
 
-## useLazyAsyncData()
-useAsyncData()関数のLazy版。useLazyAsyncData()を使用する場合、awaitは不要。*pending* プロパティを使用することで、
+## useLazyAsyncData()/useLazyFetch()
+useAsyncData()関数のLazy版。useLazyAsyncData(),useLazyFetch()を使用する場合、awaitは不要。*pending* プロパティを使用することで、
 「データ取得中・・・」のような画面を表示させることが可能。   
 * pendingプロパティの使い方   
 
