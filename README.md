@@ -203,3 +203,14 @@ const queryParams = new URLSearchParams(params);
 |pending|データ取得が終了したかどうかを表すbool値|true/falseを値とするリアクティブな変数|
 |refresh|データを再取得する関数|非同期関数|
 |error|データ取得に失敗した場合のエラーオブジェクト|エラーオブジェクトのリアクティブな変数|
+
+## useAsyncData()のオプション
+|オプション|値|内容|
+|:---|:---|:---|
+|server|true/false(デフォルトtrue)|サーバサイドでデータ取得を行うかどうかの設定|
+|lazy|true/false(デフォルトfalse)|ページロード後にデータ取得を行うかどうかの設定|
+|default|アロー関数|デフォルト値の設定。lazyオプションがtrueの場合に有用|
+|transform|アロー関数|ハンドラによって取得したデータの加工処理を設定|
+|pick|文字列配列|ハンドラによって取得したデータの絞り込みを設定|
+|watch|リアクティブな変数の配列|自動的にrefreshを実行するためのリアクティブな変数を設定|
+|immediate|true/false(デフォルトtrue)|falseを設定すると即時実行しない|
