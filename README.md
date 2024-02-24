@@ -214,3 +214,20 @@ const queryParams = new URLSearchParams(params);
 |pick|文字列配列|ハンドラによって取得したデータの絞り込みを設定|
 |watch|リアクティブな変数の配列|自動的にrefreshを実行するためのリアクティブな変数を設定|
 |immediate|true/false(デフォルトtrue)|falseを設定すると即時実行しない|
+
+## useLazyAsyncData()
+useAsyncData()関数のLazy版。useLazyAsyncData()を使用する場合、awaitは不要。*pending* プロパティを使用することで、
+「データ取得中・・・」のような画面を表示させることが可能。   
+* pendingプロパティの使い方   
+
+`const asyncData = useLazyAsyncData(・・・・);   
+const pending = asyncData.pending;    
+<template>   
+	<p v-if="pending">データ取得中・・・</p>   
+	<section v-else>   
+		<h2>{{selectedCity.name}}の天気</h2>   
+		<p>{{weatherDescription}}</p>   
+	</section>   
+	<p>リストに<NuxtLink v-bind:to="{name: 'index'}">戻る</NuxtLink></p>   
+</template>`
+
