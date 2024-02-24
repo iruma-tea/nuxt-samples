@@ -137,4 +137,17 @@ const ステートを格納する変数 = useState<ステートのデータ型>(
         {name: "description", content: "ヘッダを変更するサンプルです。"},
         {property: "og:image", content: data.image}
     ]
-});`
+});`   
+* useHead()の引数オブジェクトのプロパティ    
+
+|プロパティ名|データ型|内容|
+|:---|:---|:---|
+|title|string|タイトルタグの設定|
+|titleTemplate|string/アロー関数|タイトルを動的に設定|
+|meta|配列|metaタグの設定|
+|link|配列|linkタグの設定|
+|style|配列|styleタグの設定|
+|script|配列|scriptタグの設定|
+|noscript|配列|noscriptタグの設定|
+|htmlAttrs|オブジェクト|htmlタグの属性の設定|
+|bodyAttrs|オブジェクト|bodyタグの属性の設定|
