@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import type { Member } from "@/interfaces";
-
+const PAGE_TITLE = "会員情報追加";
 definePageMeta(
     {
         layout: "member"
     }
 );
-
+useHead({
+	title: PAGE_TITLE,
+});
 
 // ルータオブジェクトを取得
 const router = useRouter();
@@ -32,11 +34,11 @@ const onAdd = (): void => {
         <ul>
             <li><NuxtLink v-bind:to="{name: 'index'}">TOP</NuxtLink></li>
             <li><NuxtLink v-bind:to="{name: 'member-memberList'}">会員リスト</NuxtLink></li>
-            <li>会員情報追加</li>
+            <li>{{ PAGE_TITLE }}</li>
         </ul>
     </nav>
 	<section>
-		<h2>会員情報追加</h2>
+		<h2>{{ PAGE_TITLE }}</h2>
 		<p>
 			情報を入力し、登録ボタンをクリックしてください。
 		</p>

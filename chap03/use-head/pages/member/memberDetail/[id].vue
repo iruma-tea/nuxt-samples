@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import type { Member } from "@/interfaces";
-
+const PAGE_TITLE = "会員詳細情報";
 definePageMeta(
     {
         layout: "member"
     }
 );
+useHead({
+	title: PAGE_TITLE,
+});
 
 // ルートオブジェクトを取得
 const route = useRoute();
@@ -34,11 +37,11 @@ const localNote = computed(
 		<ul>
 			<li><NuxtLink v-bind:to="{name: 'index'}">TOP</NuxtLink></li>
 			<li><NuxtLink v-bind:to="{name: 'member-memberList'}">会員リスト</NuxtLink></li>
-			<li>会員詳細情報</li>
+			<li>{{ PAGE_TITLE }}</li>
 		</ul>
 	</nav>
 	<section>
-		<h2>会員詳細情報</h2>
+		<h2>{{ PAGE_TITLE }}</h2>
 		<dl>
 			<dt>ID</dt>
 			<dd>{{member.id}}</dd>

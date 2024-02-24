@@ -121,3 +121,20 @@ const ステートを格納する変数 = useState<ステートのデータ型>(
         }
     );`
     * memberは作成したlayoutファイル名を指定。また、falseを指定するとデフォルトレイアウトを含め、適用対象外となる。
+
+## ページのヘッダ情報を設定する
+* useHead()関数を使用する。引数にオブジェクトを渡し、プロパティを設定することで、ヘッダ情報を設定する
+* タイトルを設定するサンプル    
+`useHead(
+    {
+        title: 'ヘッダ変更のサンプル'   
+    }
+);`   
+* メタ(meta)情報の設定するサンプル   
+`useHead({
+    title: 'ヘッダ変更のサンプル',
+    meta: [
+        {name: "description", content: "ヘッダを変更するサンプルです。"},
+        {property: "og:image", content: data.image}
+    ]
+});`

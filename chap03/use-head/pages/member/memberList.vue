@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import type { Member } from "@/interfaces";
+const PAGE_TITLE = "会員リスト";
 definePageMeta(
     {
         layout: "member"
     }
 );
-
+useHead({
+    title: PAGE_TITLE,
+});
 // 会員情報リストをステートから取得
 const memberList = useState<Map<number, Member>>("memberList");
 </script>
@@ -14,11 +17,11 @@ const memberList = useState<Map<number, Member>>("memberList");
     <nav id="breadcrumbs">
         <ul>
             <li><NuxtLink v-bind:to="{name: 'index'}">TOP</NuxtLink></li>
-            <li>会員情報</li>
+            <li>{{ PAGE_TITLE }}</li>
         </ul>
     </nav>
     <section>
-        <h2>会員リスト</h2>
+        <h2>{{ PAGE_TITLE }}</h2>
         <p>
             新規登録は<NuxtLink v-bind:to="{name: 'member-memberAdd'}">こちら</NuxtLink>から
         </p>
