@@ -28,7 +28,7 @@ const asyncData = useLazyAsyncData(
 			//都市を表すクエリパラメータ。
 			q: selectedCity.value.q,
 			//APIキーのクエリパラメータ。ここに各自の文字列を記述する!!
-			appid: "eae14fea056621839d8e6fb42c1e9e65",
+			appid: "xxxxxx",
 		}
 		//クエリパラメータを生成。
 		const queryParams = new URLSearchParams(params);
