@@ -151,3 +151,37 @@ const ステートを格納する変数 = useState<ステートのデータ型>(
 |noscript|配列|noscriptタグの設定|
 |htmlAttrs|オブジェクト|htmlタグの属性の設定|
 |bodyAttrs|オブジェクト|bodyタグの属性の設定|
+
+## URLSearchParamsクラス
+* このクラスをnewする際に、引数としてクエリ文字列の元となるオブジェクトをリテラルを渡すとクエリ文字列が自動生成される。     
+`const params:{
+	lang: string;
+	q: string;
+	appid: string;
+} =
+{
+	//言語設定のクエリパラメータ
+	lang: "ja",
+	//都市を表すクエリパラメータ。
+	q: selectedCity.value.q,
+	//APIキーのクエリパラメータ。ここに各自の文字列を記述する!!
+	appid: "eae14fea056621839d8e6fb42c1e9e65"
+}
+//クエリパラメータを生成。
+const queryParams = new URLSearchParams(params);
+`
+
+## $fetch()関数
+* 引数にアクセス先のURLを指定するとそのURLにGetアクセスを行う。
+* POST通信の場合、第二引数にオプションのオブジェクトを渡す。       
+`$fetch("・・・・・", {method: "POST", body: {・・・・}})`　　　　　　　
+* $fetch()のオプション         
+
+|オプション|値|内容|
+|:---|:---|:---|
+|method|文字列|リクエストメソッドの定義|
+|query|オブジェクト|クエリパラメータの設定|
+|params|オブジェクト|上記queryと同じ|
+|body|文字列/オブジェクト|リクエストボディの設定(オブジェクトの場合は自動的にJSON変換される)|
+|headers|オブジェクト|リクエストヘッダの設定|
+|baseURL|文字列|ベースURLの設定|
