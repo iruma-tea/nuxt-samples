@@ -264,3 +264,10 @@ export default defineNuxtConfig({
     }
   }
 })`
+
+## 環境変数の利用
+環境変数(Environment Variable)であり、*.env*ファイルとして作成する。<br>
+ランタイム設定の設定名を*.env*ファイルで上書きする場合、ランタイム設定の設定名を全て大文字のスネーク記法に変換し、<br>
+先頭に*NUXT_*を付与した設定名とする。ただし、publicのランタイム設定の場合は*NUXT_PUBLIC_*として先頭に付与する。
+
+`NUXT_PUBLIC_WEATHERMAP_APPID="xxxxxx"`
