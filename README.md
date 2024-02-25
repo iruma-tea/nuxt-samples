@@ -271,3 +271,15 @@ export default defineNuxtConfig({
 先頭に*NUXT_*を付与した設定名とする。ただし、publicのランタイム設定の場合は*NUXT_PUBLIC_*として先頭に付与する。
 
 `NUXT_PUBLIC_WEATHERMAP_APPID="xxxxxx"`
+
+
+## Server(API)のエンドポイントの作成
+ サーバー処理を作成する場合、Nuxtでは*sever*フォルダ内にファイルに記述する。<br>
+そのうち、実際にサーバAPIエンドポイントとしてデータを送信する処理の場合、*api*サブフォルダ内に格納する。
+
+* APIのエンドポイント処理コードはdefineEventHandler()関数の実行結果をデフォルト(default)エクスポートする。
+* defineEventHandler()関数の引数にはサーバAPIエンドポイントとして送信するデータをリターンするアロー関数を定義する。
+  * このアロー関数の引数はhttpに関するイベントオブジェクトである。
+* 通常はJSON.stringify()メソッドを利用してJSONデータ化する必要があるが、defineEventHandler()内では不要。単に配列やオブジェクトを
+リターンするだけで自動でJSONデータ化される。
+
