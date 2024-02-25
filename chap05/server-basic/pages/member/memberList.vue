@@ -6,8 +6,10 @@ definePageMeta(
     }
 );
 
-// 会員情報リストをステートから取得
-const memberList = useState<Map<number, Member>>("memberList");
+const asyncData = useLazyFetch("/api/getMemberList");
+const memberList = asyncData.data;
+const pending = asyncData.pending;
+
 </script>
 
 <template>
@@ -22,11 +24,12 @@ const memberList = useState<Map<number, Member>>("memberList");
         <p>
             新規登録は<NuxtLink v-bind:to="{name: 'member-memberAdd'}">こちら</NuxtLink>から
         </p>
-        <section>
+        <p v-if="pending">データ取得中・・・</p>
+        <section v-else>
             <ul>
-                <li v-for="[id, member] in memberList" v-bind:key="id">
-					<NuxtLink v-bind:to="{name: 'member-memberDetail-id', params: {id: id}}">
-						IDが{{id}}の{{member.name}}さん
+                <li v-for="member in memberList" v-bind:key="member.id">
+					<NuxtLink v-bind:to="{name: 'member-memberDetail-id', params: {id: member.id}}">
+						IDが{{member.id}}の{{member.name}}さん
 					</NuxtLink>
                 </li>
             </ul>

@@ -282,4 +282,20 @@ export default defineNuxtConfig({
   * このアロー関数の引数はhttpに関するイベントオブジェクトである。
 * 通常はJSON.stringify()メソッドを利用してJSONデータ化する必要があるが、defineEventHandler()内では不要。単に配列やオブジェクトを
 リターンするだけで自動でJSONデータ化される。
+* NuxtのサーバAPIエンドポイントのパス
+  * /api/サーバ処理ファイル名から拡張子を取り除いたもの
 
+## nuxiの主なコマンド
+ nuxiの主なコマンドは以下の通り
+|コマンド|内容|
+|:---|:---|
+|nuxi add|プロジェクト内へのファイル追加|
+|nuxi build|プロジェクトのビルド。npm run buildと同じ|
+|nuxi clean|生成ファイルの削除|
+|nuxi dev|開発用サーバの起動 npm run devと同じ|
+|nuxi generate|静的ファイルの生成。npm run generateと同じ|
+|nuxi info|プロジェクト情報のログ|
+|nuxi init|プロジェクトの作成|
+|nuxi preview|プロジェクトのビルド後に生成されたファイルでプロジェクトを実行。npm run previewと同じ|
+|nuxi typecheck|プロジェクト内の型チェックを実行|
+|nuxi upgrade|プロジェクトを最新のNuxt環境にアップデート|
