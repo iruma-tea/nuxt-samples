@@ -231,3 +231,15 @@ const pending = asyncData.pending;
 	<p>リストに<NuxtLink v-bind:to="{name: 'index'}">戻る</NuxtLink></p>   
 </template>`
 
+---
+
+## コンポーザブルの作成方法
+1. composablesフォルダを作成する
+2. 1.のフォルダ内にuse〇〇.tsという名称(キャメル記法)のファイルを作成する
+3. 2.と同名のメソッドを定義しexportする
+4. 3のメソッド内に再利用したいコードを記述し、その結果をリターンする。
+
+`export const use〇〇 = (引数:引数の型,・・・・) => {
+    データを用意する処理
+    return 用意したデータ;
+}`
