@@ -243,3 +243,24 @@ const pending = asyncData.pending;
     データを用意する処理
     return 用意したデータ;
 }`
+
+## ランタイム設定を記述
+ URLやAPIキーのような定数値を1箇所にまとめる機能がNuxtのランタイム設定(Runtime Config)です。<br>
+ **nuxt.confing.ts** に記述する。**nuxt.config.ts** ファイルはプロジェクトを作成すると自動で<br>
+ されており、あらかじめdefineNuxtConfig()のエクスポート記述がされている。<br>
+ さらにその引数オブジェクトにdevtoolsプロパティも記述されている。
+
+* ランタイム設定はruntimeConfigプロパティ。
+* runtimeConfigプロパティにpublicプロパティとしてオブジェクトを設定する。
+
+ `// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      weatherInfoUrl: "https://api.openweathermap.org/data/2.5/weather",
+      // APIキーの設定。ここに各自の文字列を記述する!!
+      weathermapAppid: "xxxxxx",
+    }
+  }
+})`

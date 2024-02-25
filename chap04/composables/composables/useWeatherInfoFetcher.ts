@@ -1,10 +1,11 @@
 import type { City } from "@/interfaces";
 
 export const useWeatherInfoFetcher = (city: City) => {
+    const config = useRuntimeConfig(); // ランタイム設定を利用する
     const asyncData = useLazyAsyncData(
         `useWeatherInfoFetcher-${city.id}`,
         (): Promise<any> => {
-            const weatherInfoUrl = "https://api.openweathermap.org/data/2.5/weather";
+            // const weatherInfoUrl = "https://api.openweathermap.org/data/2.5/weather";
             const params: {
                 lang: string,
                 q: string,
@@ -12,10 +13,10 @@ export const useWeatherInfoFetcher = (city: City) => {
             } = {
                 lang: "ja",
                 q: city.q,
-                appid: "xxxxxx",
+                appid: config.public.weathermapAppid as string,
             }
             const queryParams = new URLSearchParams(params);
-            const urlFull = `${weatherInfoUrl}?${queryParams}`;
+            const urlFull = `${config.public.weatherInfoUrl}?${queryParams}`;
             const response = $fetch(urlFull);
             return response;
         },
