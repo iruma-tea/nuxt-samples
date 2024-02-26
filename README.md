@@ -305,3 +305,16 @@ export default defineNuxtConfig({
 * ルートパラメータの取得(context.param)
   * defineEventHandler()のコールバック関数の引数(event)に対して、context.paramプロパティにアクセスすることで<br>
   ルートパラメータをすべて取得することができる。
+
+## サーバストレージ
+* サーバストレージを利用する場合
+  1. useStorage()関数を実行して、ストレージオブジェクトを取得する。
+  2. ストレージオブジェクトのgetItem()メソッドを実行することで保存したデータを取得できる。
+    * getItem()メソッドはasyncのメソッドのため、実行するさいにはawaitキーワードを用いる。
+  
+  ` const storage = useStorage();
+    const storageData = await storage.getItem(キー文字列); `
+  3. ステージへのデータ格納はsetItem()
+    * 第一引数はキー文字列
+    * 第二引数は文字列以外のオブジェクトが渡されれば、自動的にJSON.stringify()されるようになっている。
+  
