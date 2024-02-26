@@ -6,9 +6,21 @@ definePageMeta(
     }
 );
 
-const asyncData = useLazyFetch("/api/getMemberList");
-const memberList = asyncData.data;
+const asyncData = useLazyFetch("/member-management/members");
+const responseData = asyncData.data;
 const pending = asyncData.pending;
+const memberList = computed(
+    ():Member[] => {
+        // 空のリストを用意
+        let resultList: Member[] = [];
+        // レスポンスJSONデータがnullでなければ
+        if (responseData.value != null) {
+            // レスポンスJSONデータのdataプロパティを取得
+            resultList = responseData.value.data;
+        }
+        return resultList;
+    }
+);
 
 </script>
 

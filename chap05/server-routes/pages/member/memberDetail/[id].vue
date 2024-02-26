@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Member } from '@/interfaces';
 
 definePageMeta(
     {
@@ -9,12 +10,14 @@ definePageMeta(
 // ルートオブジェクトを取得
 const route = useRoute();
 // memberListを絞り込んで取得
-const asyncData = useLazyFetch("/api/getOneMemberInfo", {
-	query: {id: route.params.id}
-})
-const member = asyncData.data;
+const asyncData = useLazyFetch(`/member-management/members/${route.params.id}`);
+const responseData = asyncData.data;
 const pending = asyncData.pending;
-
+const member = computed(
+	(): Member|undefined => {
+		return responseData.value?.data[0];
+	}
+);
 
 //備考データがない場合の対応。
 const localNote = computed(
