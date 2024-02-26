@@ -299,3 +299,9 @@ export default defineNuxtConfig({
 |nuxi preview|プロジェクトのビルド後に生成されたファイルでプロジェクトを実行。npm run previewと同じ|
 |nuxi typecheck|プロジェクト内の型チェックを実行|
 |nuxi upgrade|プロジェクトを最新のNuxt環境にアップデート|
+
+## サーバサイドルーティング
+　サーバサイドのルーティングには、*server/routes*フォルダ配下に配置したファイルはルーティングの仕組みが適用される。
+* ルートパラメータの取得(context.param)
+  * defineEventHandler()のコールバック関数の引数(event)に対して、context.paramプロパティにアクセスすることで<br>
+  ルートパラメータをすべて取得することができる。
