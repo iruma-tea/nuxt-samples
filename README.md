@@ -1,4 +1,6 @@
 # nuxt-samples
+Nuxt3 フロントエンド開発の教科書の学習リポジトリ  
+![画像](https://gihyo.jp/assets/images/cover/2023/thumb/TH160_9784297136857.jpg "Nuxt3 フロントエンド開発の教科書")
 
 ## Nuxtプロジェクトの作成コマンド
 * npx nuxi init プロジェクト名
