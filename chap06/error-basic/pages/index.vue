@@ -1,4 +1,3 @@
-import { NuxtLink } from '../../../chap04/usefetch/.nuxt/components';
 <template>
     <ul>
         <li>
