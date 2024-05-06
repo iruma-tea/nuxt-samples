@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../nuxt-samples.wiki"
 		}
 	],
 	"settings": {
