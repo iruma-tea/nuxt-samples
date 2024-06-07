@@ -1,3 +1,5 @@
+
+import { NuxtLink } from '#build/components';
 <template>
     <ul>
         <li>
@@ -13,6 +15,11 @@
         <li>
             <NuxtLink v-bind:to="{name: 'errorHandlerFatal'}">
                 致命的エラー発生実験
+            </NuxtLink>
+        </li>
+        <li>
+            <NuxtLink v-bind:to="{name: 'errorHandlerServer'}">
+                サーバエラー発生実験
             </NuxtLink>
         </li>
     </ul>
