@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h1>エラー処理サンプル</h1>
+        <h1>ミドルウェアサンプル</h1>
     </header>
     <main>
         <slot />
